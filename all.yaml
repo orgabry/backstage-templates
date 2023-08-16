@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: all-templates
+spec:
+  type: url
+  targets:
+    - ./teste/template.yaml
+    - ./teste 2/template.yaml
