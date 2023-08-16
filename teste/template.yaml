@@ -1,0 +1,33 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+kind: Template
+metadata:
+  name: teste-gabry
+  title: TESTE GABRY
+  description: Um teste inicial para testar os testes
+spec:
+  owner: user:guest
+  type: service
+
+  # These parameters are used to generate the input form in the frontend, and are
+  # used to gather input data for the execution of the template.
+  parameters:
+    - title: Fill in some steps
+      required:
+        - nomezinho
+      properties:
+        nomezinho:
+          title: Nome do teste
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+
+  # These steps are executed in the scaffolder backend, using data that we gathered
+  # via the parameters above.
+  steps:
+    # Each step executes an action, in this case one templates files into the working directory.
+    - id: teste
+      name: Teste
+      action: debug:log
+      input:
+        message: ${{parameters.nomezinho}}
