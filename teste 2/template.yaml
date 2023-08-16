@@ -16,11 +16,46 @@ spec:
       required:
         - nomezada
       properties:
-        nomezada:
-          title: Nome do teste
-          type: string
-          description: Unique name of the component
-          ui:autofocus: true
+        animal:
+        enum:
+        - Cat
+        - Fish
+      allOf:
+      - if:
+          properties:
+            animal:
+              const: Cat
+      then:
+          properties:
+            food:
+              type: string
+              enum:
+              - meat
+              - grass
+              - fish
+          required:
+            - food
+      - if:
+          properties:
+            animal:
+              const: Fish
+        then:
+          properties:
+            food:
+              type: string
+              enum:
+              - insect
+              - worms
+            water:
+              type: string
+              enum:
+              - lake
+              - sea
+          required:
+          - food
+          - water
+      - required:
+        - animal
 
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
