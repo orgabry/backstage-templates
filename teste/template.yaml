@@ -3,8 +3,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: teste-gabry
-  title: TESTE GABRY
-  description: Um teste inicial para testar os testes
+  title: Teste debuglog
+  description: Teste template
 spec:
   owner: user:guest
   type: service
@@ -14,10 +14,10 @@ spec:
   parameters:
     - title: Fill in some steps
       required:
-        - nomezinho
+        - message
       properties:
-        nomezinho:
-          title: Nome do teste
+        message:
+          title: Test Message
           type: string
           description: Unique name of the component
           ui:autofocus: true
@@ -30,4 +30,4 @@ spec:
       name: Teste
       action: debug:log
       input:
-        message: ${{parameters.nomezinho}}
+        message: ${{parameters.message}}
