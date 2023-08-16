@@ -7,3 +7,5 @@ spec:
   targets:
     - ./teste/template.yaml
     - ./teste 2/template.yaml
+    - ./create-s3/template.yaml
+    
